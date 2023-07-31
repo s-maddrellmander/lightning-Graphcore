@@ -104,7 +104,7 @@ class IPUStrategy(ParallelStrategy):
             checkpoint_io=checkpoint_io,
             precision_plugin=precision_plugin,
         )
-        if not _IPU_AVAILABLE:
+        if not poptorch.ipuHardwareIsAvailable():
             raise MisconfigurationException(
                 "The IPU Accelerator requires IPU devices to run. "
                 "Learn more or get started with IPUs at https://www.graphcore.ai/getstarted"
